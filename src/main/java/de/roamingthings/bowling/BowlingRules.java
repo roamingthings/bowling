@@ -32,10 +32,14 @@ public class BowlingRules {
             currentMoveIndex += 2;
         }
 
+        failIfMovesLeft(game, currentMoveIndex);
+
+        return totalPoints;
+    }
+
+    private static void failIfMovesLeft(Game game, int currentMoveIndex) {
         if (game.hasMovesBeginningWith(currentMoveIndex)) {
             throw new TooManyMovesException();
         }
-
-        return totalPoints;
     }
 }
