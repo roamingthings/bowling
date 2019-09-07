@@ -32,4 +32,19 @@ class TestDataFactory {
                 0, 0
         });
     }
+
+    static Game gameWithSpare() {
+        return toGame(new int[]{
+                1, 4,
+                4, 5,
+                6, 4,
+                5, 0,
+                0, 0,
+                0, 0,
+                0, 0,
+                0, 0,
+                0, 0,
+                0, 0
+        });
+    }
 }
