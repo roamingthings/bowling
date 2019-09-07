@@ -21,7 +21,7 @@ class GameTest {
     }
 
     @Test
-    void shouldFailIfTooFewMovesLeft() {
+    void shouldFailIfTooFewMovesLeftForSumOfOpenFrame() {
         Game game = toGame(new int[]{
                 1, 2,
                 3, 4
@@ -71,7 +71,7 @@ class GameTest {
     }
 
     @Test
-    void shouldReturnFalseIfTooFewMoves() {
+    void shouldReturnFalseIfTooFewMovesForSpare() {
         Game game = toGame(new int[]{
                 1, 2,
                 6, 4,
@@ -81,5 +81,30 @@ class GameTest {
         boolean found = game.isSpareFrameAt(5);
 
         assertThat(found).isFalse();
+    }
+
+
+    @Test
+    void shouldCalculateSumOfSpareFrame() {
+        Game game = toGame(new int[]{
+                1, 2,
+                6, 4,
+                5, 2
+        });
+
+        int points = game.getSumOfSpareFrameAt(2);
+
+        assertThat(points).isEqualTo(15);
+    }
+
+    @Test
+    void shouldFailIfTooFewMovesLeftForSumOfSpareFrame() {
+        Game game = toGame(new int[]{
+                1, 2,
+                6, 4
+        });
+
+        assertThatThrownBy(() -> game.getSumOfSpareFrameAt(2))
+                .isInstanceOf(TooFewMovesException.class);
     }
 }
