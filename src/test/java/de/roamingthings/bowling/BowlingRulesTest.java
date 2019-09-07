@@ -17,4 +17,13 @@ class BowlingRulesTest {
         assertThat(points).isEqualTo(0);
     }
 
+    @Test
+    void shouldCalculateGameWithAllFramesOpen() {
+        Game game = gameWithAllFramesOpen();
+
+        int points = BowlingRules.pointsFor(game);
+
+        assertThat(points).isEqualTo(14);
+    }
+
 }
