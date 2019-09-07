@@ -43,28 +43,28 @@ public class Game {
     }
 
     public int getSumOfOpenFrameAt(int firstMoveOfFrame) {
-        if (firstMoveOfFrame > moves.length - 2) {
+        if (lessThanTwoMovesLeftAt(firstMoveOfFrame)) {
             throw new TooFewMovesException();
         }
         return moves[firstMoveOfFrame] + moves[firstMoveOfFrame + 1];
     }
 
     public boolean isSpareFrameAt(int firstMoveOfFrame) {
-        if (firstMoveOfFrame <= moves.length - 2) {
+        if (twoMovesLeftAt(firstMoveOfFrame)) {
             return (moves[firstMoveOfFrame] + moves[firstMoveOfFrame + 1]) == 10;
         }
         return false;
     }
 
     public int getSumOfSpareFrameAt(int firstMoveOfFrame) {
-        if (firstMoveOfFrame > moves.length - 3) {
+        if (lessThanThreeMovesLeftAt(firstMoveOfFrame)) {
             throw new TooFewMovesException();
         }
         return moves[firstMoveOfFrame] + moves[firstMoveOfFrame + 1] + moves[firstMoveOfFrame + 2];
     }
 
     public boolean isSpikeFrameAt(int firstMoveOfFrame) {
-        if (firstMoveOfFrame <= moves.length - 1) {
+        if (oneMoveLeftAt(firstMoveOfFrame)) {
             return moves[firstMoveOfFrame] == 10;
         }
         return false;
@@ -76,5 +76,21 @@ public class Game {
 
     public boolean hasMovesBeginningWith(int index) {
         return index < moves.length;
+    }
+
+    private boolean lessThanTwoMovesLeftAt(int firstMoveOfFrame) {
+        return firstMoveOfFrame > moves.length - 2;
+    }
+
+    private boolean lessThanThreeMovesLeftAt(int firstMoveOfFrame) {
+        return firstMoveOfFrame > moves.length - 3;
+    }
+
+    private boolean oneMoveLeftAt(int firstMoveOfFrame) {
+        return firstMoveOfFrame <= moves.length - 1;
+    }
+
+    private boolean twoMovesLeftAt(int firstMoveOfFrame) {
+        return firstMoveOfFrame <= moves.length - 2;
     }
 }
