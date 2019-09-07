@@ -43,7 +43,7 @@ public class Game {
     }
 
     public int getSumOfOpenFrameAt(int firstMoveOfFrame) {
-        if (firstMoveOfFrame >= moves.length - 1) {
+        if (firstMoveOfFrame > moves.length - 2) {
             throw new TooFewMovesException();
         }
         return moves[firstMoveOfFrame] + moves[firstMoveOfFrame + 1];
@@ -57,7 +57,7 @@ public class Game {
     }
 
     public int getSumOfSpareFrameAt(int firstMoveOfFrame) {
-        if (firstMoveOfFrame >= moves.length - 2) {
+        if (firstMoveOfFrame > moves.length - 3) {
             throw new TooFewMovesException();
         }
         return moves[firstMoveOfFrame] + moves[firstMoveOfFrame + 1] + moves[firstMoveOfFrame + 2];
