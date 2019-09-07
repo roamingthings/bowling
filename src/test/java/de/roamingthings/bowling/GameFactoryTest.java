@@ -20,6 +20,17 @@ class GameFactoryTest {
     }
 
     @Test
+    void shouldCreateFromArray() {
+        Game game = toGame(new int[] {3, 4, 5});
+
+        assertSoftly(softly -> {
+            softly.assertThat(game.getPinsForMove(0)).isEqualTo(3);
+            softly.assertThat(game.getPinsForMove(1)).isEqualTo(4);
+            softly.assertThat(game.getPinsForMove(2)).isEqualTo(5);
+        });
+    }
+
+    @Test
     void shouldRejectInputWithValuesTooSmall() {
         assertThatThrownBy(() -> toGame("1, 2, 3, -1"))
                 .isInstanceOf(InvalidPinsValueException.class);

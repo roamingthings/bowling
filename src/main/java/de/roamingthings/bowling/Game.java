@@ -5,10 +5,16 @@ import static java.util.Arrays.stream;
 public class Game {
 
     public static class GameFactory {
-        public static Game toGame(String input) {
-            int[] moves = convertToArray(input);
+        private GameFactory() {
+        }
+
+        public static Game toGame(int[] moves) {
             failOnInvalidValues(moves);
             return new Game(moves);
+        }
+
+        public static Game toGame(String input) {
+            return toGame(convertToArray(input));
         }
 
         private static int[] convertToArray(String input) {
