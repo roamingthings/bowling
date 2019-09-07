@@ -13,6 +13,14 @@ ausgeführt werden.
 Die Anzahl der Würfe werden nacheinander auf Anforderung eingegeben und
 mit der Eingabetaste bestätigt.
 
+Die Zahlenfolge aus der Aufgabe lautet:
+
+```
+1, 4, 4, 5, 6, 4, 5, 5, 10, 0, 1, 7, 3, 6, 4, 10, 2, 8, 6
+```
+
+Das Ergebnis ist `133`.
+
 ## Ausführen der Tests
 
 Die gesamte Test-Suit kann mittels `./gradlew clean test` im 
