@@ -73,4 +73,8 @@ public class Game {
     public int getSumOfSpikeFrameAt(int firstMoveOfFrame) {
         return getSumOfSpareFrameAt(firstMoveOfFrame);
     }
+
+    public boolean movesExistAtOrAfter(int index) {
+        return index < moves.length;
+    }
 }

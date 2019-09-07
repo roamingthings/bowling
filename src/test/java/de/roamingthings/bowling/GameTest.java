@@ -184,4 +184,28 @@ class GameTest {
         assertThatThrownBy(() -> game.getSumOfSpikeFrameAt(2))
                 .isInstanceOf(TooFewMovesException.class);
     }
+
+    @Test
+    void shouldReturnTrueIfMovesExistAfterIndex() {
+        Game game = toGame(new int[]{
+                1, 2,
+                6, 4
+        });
+
+        boolean found = game.movesExistAtOrAfter(3);
+
+        assertThat(found).isTrue();
+    }
+
+    @Test
+    void shouldReturnFalseIfMovesAbsentAfterIndex() {
+        Game game = toGame(new int[]{
+                1, 2,
+                6, 4
+        });
+
+        boolean found = game.movesExistAtOrAfter(4);
+
+        assertThat(found).isFalse();
+    }
 }
