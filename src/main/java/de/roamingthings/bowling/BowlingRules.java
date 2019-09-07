@@ -10,7 +10,10 @@ public class BowlingRules {
         int currentMoveIndex = 0;
         int totalPoints = 0;
         while (currentFrame < MAX_FRAME_NUMBER) {
-            if (game.isSpareFrameAt(currentMoveIndex)) {
+            if (game.isSpikeFrameAt(currentMoveIndex)) {
+                totalPoints += game.getSumOfSpikeFrameAt(currentMoveIndex);
+                currentMoveIndex += 1;
+            } else if (game.isSpareFrameAt(currentMoveIndex)) {
                 totalPoints += game.getSumOfSpareFrameAt(currentMoveIndex);
                 currentMoveIndex += 2;
             } else {

@@ -47,4 +47,19 @@ class TestDataFactory {
                 0, 0
         });
     }
+
+    static Game gameWithSpike() {
+        return toGame(new int[]{
+                1, 4,
+                4, 5,
+                6, 4,
+                5, 5,
+                10,
+                0, 1,
+                0, 0,
+                0, 0,
+                0, 0,
+                0, 0
+        });
+    }
 }
