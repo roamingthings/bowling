@@ -1,10 +1,12 @@
 package de.roamingthings.bowling;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static de.roamingthings.bowling.Game.GameFactory.toGame;
 import static org.assertj.core.api.Assumptions.assumeThat;
 
+@Disabled
 class UserAcceptanceTests {
     
     @Test
