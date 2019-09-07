@@ -43,6 +43,9 @@ public class Game {
     }
 
     public int getSumOfOpenFrameAt(int firstMoveOfFrame) {
+        if (firstMoveOfFrame > moves.length - 2) {
+            throw new TooFewMovesException();
+        }
         return moves[firstMoveOfFrame] + moves[firstMoveOfFrame + 1];
     }
 }
