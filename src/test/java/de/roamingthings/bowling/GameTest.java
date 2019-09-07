@@ -83,7 +83,6 @@ class GameTest {
         assertThat(found).isFalse();
     }
 
-
     @Test
     void shouldCalculateSumOfSpareFrame() {
         Game game = toGame(new int[]{
@@ -107,4 +106,57 @@ class GameTest {
         assertThatThrownBy(() -> game.getSumOfSpareFrameAt(2))
                 .isInstanceOf(TooFewMovesException.class);
     }
+
+    @Test
+    void shouldReturnTrueIfStrikePresent() {
+        Game game = toGame(new int[]{
+                1, 2,
+                10,
+                7, 1
+        });
+
+        boolean found = game.isSpikeFrameAt(2);
+
+        assertThat(found).isTrue();
+    }
+
+    @Test
+    void shouldReturnTrueIfStrikePresentAtTheEnd() {
+        Game game = toGame(new int[]{
+                1, 2,
+                6, 4,
+                10
+        });
+
+        boolean found = game.isSpikeFrameAt(4);
+
+        assertThat(found).isTrue();
+    }
+
+    @Test
+    void shouldReturnFalseIfStrikeAbsent() {
+        Game game = toGame(new int[]{
+                1, 2,
+                6, 4,
+                7, 1
+        });
+
+        boolean found = game.isSpikeFrameAt(0);
+
+        assertThat(found).isFalse();
+    }
+
+    @Test
+    void shouldReturnFalseIfTooFewMovesForSpike() {
+        Game game = toGame(new int[]{
+                1, 2,
+                6, 4,
+                7, 1
+        });
+
+        boolean found = game.isSpikeFrameAt(6);
+
+        assertThat(found).isFalse();
+    }
+
 }

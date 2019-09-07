@@ -4,6 +4,7 @@ import static java.util.Arrays.stream;
 
 public class Game {
 
+
     public static class GameFactory {
 
         private GameFactory() {
@@ -61,4 +62,12 @@ public class Game {
         }
         return moves[firstMoveOfFrame] + moves[firstMoveOfFrame + 1] + moves[firstMoveOfFrame + 2];
     }
+
+    public boolean isSpikeFrameAt(int firstMoveOfFrame) {
+        if (firstMoveOfFrame <= moves.length - 1) {
+            return moves[firstMoveOfFrame] == 10;
+        }
+        return false;
+    }
+
 }
