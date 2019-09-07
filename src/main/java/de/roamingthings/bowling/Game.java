@@ -74,7 +74,7 @@ public class Game {
         return getSumOfSpareFrameAt(firstMoveOfFrame);
     }
 
-    public boolean movesExistAtOrAfter(int index) {
+    public boolean hasMovesBeginningWith(int index) {
         return index < moves.length;
     }
 }

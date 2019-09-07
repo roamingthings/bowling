@@ -32,6 +32,10 @@ public class BowlingRules {
             currentMoveIndex += 2;
         }
 
+        if (game.hasMovesBeginningWith(currentMoveIndex)) {
+            throw new TooManyMovesException();
+        }
+
         return totalPoints;
     }
 }

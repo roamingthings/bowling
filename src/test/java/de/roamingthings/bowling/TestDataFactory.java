@@ -62,4 +62,19 @@ class TestDataFactory {
                 0, 0
         });
     }
+
+    static Game gameWithTooManyMoves() {
+        return toGame(new int[]{
+                0, 0,
+                0, 0,
+                0, 0,
+                0, 0,
+                0, 0,
+                0, 0,
+                0, 0,
+                0, 0,
+                0, 0,
+                0, 0, 0
+        });
+    }
 }

@@ -192,7 +192,7 @@ class GameTest {
                 6, 4
         });
 
-        boolean found = game.movesExistAtOrAfter(3);
+        boolean found = game.hasMovesBeginningWith(3);
 
         assertThat(found).isTrue();
     }
@@ -204,7 +204,7 @@ class GameTest {
                 6, 4
         });
 
-        boolean found = game.movesExistAtOrAfter(4);
+        boolean found = game.hasMovesBeginningWith(4);
 
         assertThat(found).isFalse();
     }
