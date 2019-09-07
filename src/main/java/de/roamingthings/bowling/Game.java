@@ -70,4 +70,12 @@ public class Game {
         return false;
     }
 
+    public int getSumOfSpikeFrameAt(int firstMoveOfFrame) {
+        if (firstMoveOfFrame > moves.length - 3) {
+            throw new TooFewMovesException();
+        }
+        return moves[firstMoveOfFrame]
+                + moves[firstMoveOfFrame + 1]
+                + moves[firstMoveOfFrame + 2];
+    }
 }

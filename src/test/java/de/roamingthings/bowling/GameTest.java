@@ -159,4 +159,29 @@ class GameTest {
         assertThat(found).isFalse();
     }
 
+
+    @Test
+    void shouldCalculateSumOfSpikeFrame() {
+        Game game = toGame(new int[]{
+                1, 2,
+                10,
+                5, 2
+        });
+
+        int points = game.getSumOfSpikeFrameAt(2);
+
+        assertThat(points).isEqualTo(17);
+    }
+
+    @Test
+    void shouldFailIfTooFewMovesLeftForSumOfSpikeFrame() {
+        Game game = toGame(new int[]{
+                1, 2,
+                10,
+                4
+        });
+
+        assertThatThrownBy(() -> game.getSumOfSpikeFrameAt(2))
+                .isInstanceOf(TooFewMovesException.class);
+    }
 }
