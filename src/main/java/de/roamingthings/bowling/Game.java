@@ -4,7 +4,6 @@ import static java.util.Arrays.stream;
 
 public class Game {
 
-
     public static class GameFactory {
 
         private GameFactory() {
@@ -34,6 +33,7 @@ public class Game {
     }
 
     private final int[] moves;
+
     private Game(int[] moves) {
         this.moves = moves;
     }

@@ -4,6 +4,9 @@ public class BowlingRules {
 
     private static final int MAX_FRAME_NUMBER = 10;
 
+    private BowlingRules() {
+    }
+
     public static int pointsFor(Game game) {
         int currentMoveIndex = 0;
         int totalPoints = 0;
