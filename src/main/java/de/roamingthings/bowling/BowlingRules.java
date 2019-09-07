@@ -21,6 +21,16 @@ public class BowlingRules {
             }
         }
 
+        if (game.isSpikeFrameAt(currentMoveIndex)) {
+            totalPoints += game.getSumOfSpikeFrameAt(currentMoveIndex);
+            currentMoveIndex += 3;
+        } else if (game.isSpareFrameAt(currentMoveIndex)) {
+            totalPoints += game.getSumOfSpareFrameAt(currentMoveIndex);
+            currentMoveIndex += 3;
+        } else {
+            totalPoints += game.getSumOfOpenFrameAt(currentMoveIndex);
+            currentMoveIndex += 2;
+        }
 
         return totalPoints;
     }
