@@ -30,4 +30,56 @@ class GameTest {
         assertThatThrownBy(() -> game.getSumOfOpenFrameAt(3))
                 .isInstanceOf(TooFewMovesException.class);
     }
+
+    @Test
+    void shouldReturnTrueIfSparePresent() {
+        Game game = toGame(new int[]{
+                1, 2,
+                6, 4,
+                7, 1
+        });
+
+        boolean found = game.isSpareFrameAt(2);
+
+        assertThat(found).isTrue();
+    }
+
+    @Test
+    void shouldReturnTrueIfSparePresentAtTheEnd() {
+        Game game = toGame(new int[]{
+                1, 2,
+                6, 4,
+                5, 5
+        });
+
+        boolean found = game.isSpareFrameAt(4);
+
+        assertThat(found).isTrue();
+    }
+
+    @Test
+    void shouldReturnFalseIfSpareAbsent() {
+        Game game = toGame(new int[]{
+                1, 2,
+                6, 4,
+                7, 1
+        });
+
+        boolean found = game.isSpareFrameAt(0);
+
+        assertThat(found).isFalse();
+    }
+
+    @Test
+    void shouldReturnFalseIfTooFewMoves() {
+        Game game = toGame(new int[]{
+                1, 2,
+                6, 4,
+                7, 1
+        });
+
+        boolean found = game.isSpareFrameAt(5);
+
+        assertThat(found).isFalse();
+    }
 }

@@ -8,11 +8,11 @@ public class Game {
 
         private GameFactory() {
         }
+
         public static Game toGame(int[] moves) {
             failOnInvalidValues(moves);
             return new Game(moves);
         }
-
         public static Game toGame(String input) {
             return toGame(convertToArray(input));
         }
@@ -30,10 +30,9 @@ public class Game {
                 throw new InvalidPinsValueException();
             }
         }
-
     }
-    private final int[] moves;
 
+    private final int[] moves;
     private Game(int[] moves) {
         this.moves = moves;
     }
@@ -47,5 +46,12 @@ public class Game {
             throw new TooFewMovesException();
         }
         return moves[firstMoveOfFrame] + moves[firstMoveOfFrame + 1];
+    }
+
+    public boolean isSpareFrameAt(int firstMoveOfFrame) {
+        if (firstMoveOfFrame <= moves.length - 2) {
+            return (moves[firstMoveOfFrame] + moves[firstMoveOfFrame + 1]) == 10;
+        }
+        return false;
     }
 }
