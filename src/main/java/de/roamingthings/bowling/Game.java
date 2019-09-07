@@ -7,7 +7,9 @@ public class Game {
     private final int[] moves;
 
     public static Game fromInput(String input) {
-        return new Game(convertToArray(input));
+        int[] moves = convertToArray(input);
+        failOnInvalidValues(moves);
+        return new Game(moves);
     }
 
     private static int[] convertToArray(String input) {
@@ -16,6 +18,14 @@ public class Game {
                 .mapToInt(Integer::new)
                 .toArray();
     }
+
+    private static void failOnInvalidValues(int[] moves) {
+        boolean invalidMoves = stream(moves).anyMatch(pins -> pins < 0 || pins > 10);
+        if (invalidMoves) {
+            throw new InvalidPinsValueException();
+        }
+    }
+
 
     private Game(int[] moves) {
         this.moves = moves;
