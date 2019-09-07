@@ -5,11 +5,10 @@ public class BowlingRules {
     private static final int MAX_FRAME_NUMBER = 10;
 
     public static int pointsFor(Game game) {
-        int currentFrame = 0;
-
         int currentMoveIndex = 0;
         int totalPoints = 0;
-        while (currentFrame < MAX_FRAME_NUMBER) {
+
+        for (int currentFrame = 0; currentFrame < MAX_FRAME_NUMBER - 1; currentFrame++) {
             if (game.isSpikeFrameAt(currentMoveIndex)) {
                 totalPoints += game.getSumOfSpikeFrameAt(currentMoveIndex);
                 currentMoveIndex += 1;
@@ -20,8 +19,9 @@ public class BowlingRules {
                 totalPoints += game.getSumOfOpenFrameAt(currentMoveIndex);
                 currentMoveIndex += 2;
             }
-            currentFrame++;
         }
+
+
         return totalPoints;
     }
 }
