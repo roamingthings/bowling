@@ -1,8 +1,10 @@
 package de.roamingthings.bowling;
 
-public class TestDataFactory {
-    static int[] gameWithAllMovesZero() {
-        return new int[]{
+import static de.roamingthings.bowling.Game.GameFactory.toGame;
+
+class TestDataFactory {
+    static Game gameWithAllMovesZero() {
+        return toGame(new int[]{
                 0, 0,
                 0, 0,
                 0, 0,
@@ -13,6 +15,21 @@ public class TestDataFactory {
                 0, 0,
                 0, 0,
                 0, 0
-        };
+        });
+    }
+
+    static Game gameWithAllFramesOpen() {
+        return toGame(new int[]{
+                1, 4,
+                4, 5,
+                0, 0,
+                0, 0,
+                0, 0,
+                0, 0,
+                0, 0,
+                0, 0,
+                0, 0,
+                0, 0
+        });
     }
 }

@@ -5,9 +5,9 @@ import static java.util.Arrays.stream;
 public class Game {
 
     public static class GameFactory {
+
         private GameFactory() {
         }
-
         public static Game toGame(int[] moves) {
             failOnInvalidValues(moves);
             return new Game(moves);
@@ -30,8 +30,8 @@ public class Game {
                 throw new InvalidPinsValueException();
             }
         }
-    }
 
+    }
     private final int[] moves;
 
     private Game(int[] moves) {
@@ -40,5 +40,9 @@ public class Game {
 
     public int getPinsForMove(int index) {
         return moves[index];
+    }
+
+    public int getSumOfOpenFrameAt(int firstMoveOfFrame) {
+        return moves[firstMoveOfFrame] + moves[firstMoveOfFrame + 1];
     }
 }
