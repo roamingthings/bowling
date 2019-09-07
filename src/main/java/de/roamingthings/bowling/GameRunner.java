@@ -15,6 +15,10 @@ public class GameRunner {
             int points = BowlingRules.pointsFor(toGame(line));
 
             System.out.println(format("Die Gesamtpunktzahl beträgt %d Punkte", points));
+        } catch (TooFewMovesException e) {
+            System.out.println("Es wurden nicht genügend Würfe eingegeben");
+        } catch (TooManyMovesException e) {
+            System.out.println("Es wurden zu viele Würfe eingegeben");
         } catch (InvalidPinsValueException e) {
             System.out.println("Es wurden ungültige Werte für einzelne Werte eingegeben." +
                     " Sie müssen zwischen 0 und 10 liegen");
