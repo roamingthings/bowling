@@ -10,8 +10,7 @@ Ziel ist _nicht_ die Ausgabe des Spielplans bzw. der Zwischenschritte.
 Das Programm kann durch `./gradlew --console=plain clean run` im Hauptverzeichnis
 ausgeführt werden.
 
-Die Anzahl der Würfe werden nacheinander auf Anforderung eingegeben und
-mit der Eingabetaste bestätigt.
+Die Anzahl der Würfe werden als kommaseparierte Liste eingegeben.
 
 Die Zahlenfolge aus der Aufgabe lautet:
 
@@ -30,8 +29,9 @@ geworfen, können gemäß der Regeln nur zwei Würfe ausgeführt werden.
 Die gesamte Test-Suit kann mittels `./gradlew clean test` im 
 Hauptverzeichnis ausgeführt werden.
 
-Die Klasse `de.roamingthings.bowling.SystemTests` enthält verschiedene
-Testfälle, die gesamte Spiele abbildet.
+Die Klasse `de.roamingthings.bowling.UserAcceptanceTests` enthält
+verschiedene Testfälle, die vollständige Spiele aus verschiedenen
+Quellen abbildet.
 
 ## Verwendete Sprache
 
@@ -40,7 +40,7 @@ Variablenbezeichnungen entschieden.
 
 ## Regeln
 
-* Pro Wurf (_Roll_) müssen wenigstens 0 Punkte erreicht werden.
+* Pro Wurf (_Move_) müssen wenigstens 0 Punkte erreicht werden.
 * Pro Wurf können maximal 10 Punkte erreicht werden.
 * Ein Spiel besteht aus 10 _Frames_
 * Für die Frames 1-9 gilt:
@@ -49,7 +49,7 @@ Variablenbezeichnungen entschieden.
 * Ein _Spare_ liegt vor, wenn die Summe der Punktzahlen beider Würfe eines Frames den Wert  10 erreicht.
 * Ein _Strike_ liegt vor, wenn mit einem Wurf zehn Punkt erreicht werden. 
 * Für das 10. Frame gilt:
-  * Wird mit dem ersten oder zweiten Wurf ein Spare oder Strike erreicht,
+  * Wird mit dem ersten oder zweiten Wurf ein Strike oder Spare erreicht,
   wird ein dritter Wurf ausgeführt
   * Es ist möglich, dass mehrere Strikes geworfen werden.
 * Die Punktzahl eines Frames berechnet sich wie folgt:
