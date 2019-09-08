@@ -21,6 +21,10 @@ Die Zahlenfolge aus der Aufgabe lautet:
 
 Das Ergebnis ist `133`.
 
+Es dürfen nur die tatsächlichen Würfe eingegeben werden. Dies betrifft
+insbesondere das 10. Frame. Wird in diesem Frame kein Spare oder Strike
+geworfen, können gemäß der Regeln nur zwei Würfe ausgeführt werden.
+
 ## Ausführen der Tests
 
 Die gesamte Test-Suit kann mittels `./gradlew clean test` im 
